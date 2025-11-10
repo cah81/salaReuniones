@@ -1,5 +1,6 @@
 package com.app.meet.services;
 
+import com.app.meet.data.PersonaRepository;
 import com.app.meet.models.Persona;
 import org.springframework.stereotype.Service;
 
@@ -9,16 +10,13 @@ import java.util.List;
 @Service
 public class PersonaService {
 
-    private static  final List<Persona> personas = new ArrayList<>();
-    static {
-        for (int i =0; i < 5; i ++){
-            Persona persona = new Persona(i, "Nombre " + i , "Apellido " + i);
-            personas.add(persona);
-        }
+    private final PersonaRepository personaRepository;
 
+    public PersonaService(PersonaRepository personaRepository) {
+        this.personaRepository = personaRepository;
     }
 
     public List<Persona> getAllPersonas(){
-        return  personas;
+        return  personaRepository.findAll();
     }
 }
