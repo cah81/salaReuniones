@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="MeetApplicationPRE" type="Application" factoryName="Application">
+    <envs>
+      <env name="SPRING_PROFILES_ACTIVE" value="pruebas" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.app.meet.MeetApplication" />
+    <module name="meet" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
