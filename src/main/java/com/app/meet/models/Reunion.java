@@ -1,11 +1,14 @@
 package com.app.meet.models;
 
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Reunion {
     private long id;
     private String asunto;
     private ZonedDateTime fecha;
+    private List<Persona> asistentes = new ArrayList<>();
 
     public Reunion() {
     }
@@ -38,6 +41,14 @@ public class Reunion {
 
     public void setFecha(ZonedDateTime fecha) {
         this.fecha = fecha;
+    }
+
+    public List<Persona> getAsistentes() {
+        return asistentes;
+    }
+
+    public void addAsistente(Persona asistente) {
+        asistentes.add(asistente);
     }
 
     @Override
