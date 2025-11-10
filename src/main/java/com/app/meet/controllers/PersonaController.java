@@ -2,6 +2,8 @@ package com.app.meet.controllers;
 
 import com.app.meet.models.Persona;
 import com.app.meet.models.Reunion;
+import com.app.meet.services.PersonaService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,17 +16,12 @@ import java.util.List;
 @Controller
 @RequestMapping("/personas")
 public class PersonaController {
-    private static  final List<Persona> personas = new ArrayList<>();
-    static {
-        for (int i =0; i < 5; i ++){
-         Persona persona = new Persona(i, "Nombre " + i , "Apellido " + i);
-         personas.add(persona);
-        }
+    @Autowired
+    private PersonaService personaService;
 
-    }
     @GetMapping
     public String getAllPersonas(Model model){
-        model.addAttribute("personas", personas);
+        model.addAttribute("personas", personaService.getAllPersonas());
         return "personas";
     }
 
